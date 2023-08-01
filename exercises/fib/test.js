@@ -23,3 +23,8 @@ test('calculates correct fib value for 4', () => {
 test('calculates correct fib value for 15', () => {
   expect(fib(39)).toEqual(63245986);
 });
+
+
+// jest fib/test.js --watch 명령어 실행
+// command + c : move on to the next one - stop the test runner
+// enter : rerun manually
