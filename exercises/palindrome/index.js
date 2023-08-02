@@ -4,9 +4,31 @@
 // form the same word if it is reversed. *Do* include spaces
 // and punctuation in determining if the string is a palindrome.
 // --- Examples:
+//   뒤집어도 똑같은 경우를 palindrome 이라고 한다.
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+   return str.split('').every((char, i)=>{
+       return str === str[str.length-i-1]
+   });
+}
+
 
 module.exports = palindrome;
+
+// 1) reversestring 사용하기
+// function palindrome(str) {
+//     return str === str.split('').reverse().join('');
+// }
+
+// 2) every() 함수 사용하기 : is every value greater than 5?
+// array.every((val)=> val>5); // every true -> true, single one false -> false
+// a b c b a // 서로 끝과 끝을 비교한다 : double comparison
+// function palindrome(str) {
+//     return str.split('').every((char, i)=>{
+//         return char === str[str.length-i-1]
+//     });
+// }
+
+

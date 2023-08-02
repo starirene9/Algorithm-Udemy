@@ -13,7 +13,7 @@ function reverse(str) {
 
 module.exports = reverse;
 
-//  reverse 함수 이용하기 -> array에서만 사용가능
+//  1) reverse 함수 이용하기 -> array에서만 사용가능
 // 1. turn str into an array
 // 2. call reverse method on the array
 // 3. join the array back into a string
@@ -30,7 +30,7 @@ module.exports = reverse;
 //         .join('');
 // }
 
-// reverse 함수 쓰지 않는 2번째 방법
+// 2) reverse 함수 쓰지 않는 2번째 방법
 // 1. create an empty string called reversed
 // 2. for each character iin the provided string -> take the character and add it to the start of reversed
 // 3. return the variable reversed
@@ -46,7 +46,7 @@ module.exports = reverse;
 // }
 // reverse('hamburger'); // debug시 이것도 넣어 줄 것~!
 
-// 3.
+// 3) reduce 함수 사용하기
 // function reverse(str) {
 //   return str.split('').reduce((rev, char) => char + rev,'') // single string value
 //   // split 함수 : 문자열 분리
@@ -54,9 +54,10 @@ module.exports = reverse;
 //   // reduce((first,second)=>,initialValue)
 // }
 
-// 4. Debugger
-// 1. cd reversestring ->
-// 2. node inspect index.js
+// 4) Debugger로 검사 실행하기
+// 1. cd reversestring
+// 2-1. 그냥 테스트 할 때 : jest reversestring/test.js --watch
+// 2-2. node inspect index.js
 // 3. c : continue -> until you see debugger
 // 4. repl
 // 5. control c  : to leave
