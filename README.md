@@ -1,3 +1,10 @@
-# AlgoCasts
+# U-demy Algorithm 퀴즈 독학 페이지 
+총 30개 미만 정도가 있는데 8월에 강의 1독 완주와 문제풀이와 암기를 목표로 한다. 
 
-Companion repo to [The Coding Inteview Bootcamp: Algorithms + Data Structures](https://www.udemy.com/course/coding-interview-bootcamp-algorithms-and-data-structure/)
+1. 하루에 한 알고리즘
+
+2. 강의를 듣고 2, 3가지 풀이 방법을 주석으로 정리하며 타이핑
+
+3. 강의가 완료되면 암기식으로 풀 것
+
+4. 다음 알고리즘 학습 시, 이전의 알고리즘 다시 풀어볼 것 
