@@ -9,9 +9,9 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-   return str.split('').every((char, i)=>{
-       return str === str[str.length-i-1]
-   });
+    return str.split('').every((char, i) => {
+        return char === str[str.length - i - 1]
+    })
 }
 
 
@@ -26,8 +26,8 @@ module.exports = palindrome;
 // array.every((val)=> val>5); // every true -> true, single one false -> false
 // a b c b a // 서로 끝과 끝을 비교한다 : double comparison
 // function palindrome(str) {
-//     return str.split('').every((char, i)=>{
-//         return char === str[str.length-i-1]
+//     return str.split('').every((char, i)=>{ // index = i = 0
+//         return char === str[str.length-i-1] // 해당 글자와 반대편 뒷편의 글자가 모두 같은지 검사해서 모두 같으면 true
 //     });
 // }
 

@@ -9,9 +9,8 @@
 //   reverseInt(-90) === -9
 
 function reverseInt(n) { //123
-        const reversed = n.toString().split('').reverse().join('');
-        return parseInt(reversed) * Math.sign(n);
-        // n > 0 positive return 1 , n < 0 negative return -1
+        const reversed = n.toString().split('').reverse().join(''); // 숫자를 뒤집은 스트링 321-
+        return parseInt(reversed) * Math.sign(n)
 }
 
 module.exports = reverseInt;
@@ -22,8 +21,8 @@ module.exports = reverseInt;
 
 //1)
 // function reverseInt(n) { //123
-//     const reversed = n.toString().split('').reverse().join('');
-//     return parseInt(reversed) * Math.sign(n);
+//     const reversed = n.toString().split('').reverse().join(''); // 321-
+//     return parseInt(reversed) * Math.sign(n); // 321 * -1
 //     // n > 0 positive return 1 , n < 0 negative return -1
 // }
 
