@@ -19,7 +19,7 @@ function maxChar(str) { // abcccccccd
        console.log(obj);
    }
 
-   for( let char in obj) {
+   for( let char in obj) {  // obj은 이것 사용
        if(obj[char] > count) {
            count = obj[char];
            maxKey = char;
