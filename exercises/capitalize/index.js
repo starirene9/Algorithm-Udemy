@@ -8,19 +8,18 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 function capitalize(str) {
-    const arr = [];
+   let result = str[0].toUpperCase();
 
-    for (let word of str.split(' ')) {
-        console.log(str.split(' '))  // [ 'hi', 'there,', 'how', 'is', 'it', 'going?' ]
-        // 붙여쓰면 한 글자씩, 띄어쓰면 단어 단위로, 두번 띄어 쓰면 문장 단위로
-        console.log(word[0]); // h t h i t (단어의 첫 글짜)
-        console.log(word.slice(1));
-        //slice : 첫 번째를 제한 나머지
-        arr.push(word[0].toUpperCase() + word.slice(1));
-        console.log("this",arr); // this [ 'Hi', 'There,', 'How', 'Is', 'It', 'Going?' ]
-    }
-    return arr.join(' ');
+   for (let i= 1 ; i <str.length; i++){
+       if(str[i-1] === ' ') {
+           result += str[i].toUpperCase();
+       } else {
+           result += str[i];
+       }
+   }
+   return result;
 }
+
 module.exports = capitalize;
 
 //1)
@@ -60,4 +59,21 @@ module.exports = capitalize;
 //     }
 //     return arr.join(' ');
 // }
+// module.exports = capitalize;
+
+
+// 2)
+// function capitalize(str) {
+//     let result = str[0].toUpperCase();
+//
+//     for (let i= 1 ; i <str.length; i++){
+//         if(str[i-1] === ' ') {
+//             result += str[i].toUpperCase();
+//         } else {
+//             result += str[i];
+//         }
+//     }
+//     return result;
+// }
+//
 // module.exports = capitalize;
