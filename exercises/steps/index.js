@@ -97,7 +97,7 @@ module.exports = steps;
 
 // if(row === n) then we have hit the end of our problem
 // if the stair string has a length === n then we are at the end of a row
-// if the lengthof the stair string is less than or equal to the row number we're working on, we add a #
+// if the length of the stair string is less than or equal to the row number we're working on, we add a #
 // otherwise add a space
 
 // function steps(n, row = 0, stair = '') { // 전달 받는 수가 negative 일수도 있기에 default 값 정한다.
