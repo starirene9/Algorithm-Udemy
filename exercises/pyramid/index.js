@@ -14,22 +14,25 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {
-    for (let row = 0 ; row <n ; row++){
-        const midpoint = Math.floor((2 * n - 1) / 2 )
-        // calculate the midpoint : center index
-        let level = '';
-
-        for (let column = 0; column < 2 * n - 1; column ) {
-            //2 -> 3 / 3 -> 5 / 4 -> 7 // two times - 1
-           if (midpoint - row <= column && midpoint + row >= column) {
-               level += '#';
-           } else {
-               level += ' ';
-           }
-
-        }
+function pyramid(n, row = 0, level = '') {
+    if (row === n ) {
+        return;
     }
+
+    if (level.length === 2 * n -1) {
+        console.log(level);
+        return pyramid(n, row + 1);
+    }
+
+    // midpoint
+    const midpoint = Math.floor((2 * n - 1) / 2);
+    let add;
+    if(midpoint - row <= level.length && midpoint + row >= level.length) {
+        add = '#';
+    }else {
+        add = ' ';
+    }
+    pyramid(n, row, level + add)
 }
 
 module.exports = pyramid;
@@ -44,7 +47,48 @@ module.exports = pyramid;
 // else add a space to 'level ->
 
 // calculate the midpoint : center index
-const columns = [0, 1, 2, 3, 4];
-const row = 0;
+// const columns = [0, 1, 2, 3, 4];
+// const row = 0;
+//
+// Math.floor((2 * n - 1) / 2)
 
-Math.floor((2 * n -1) / 2)
+// function pyramid(n) {
+//     for (let row = 0; row < n; row++) {
+//         const midpoint = Math.floor((2 * n - 1) / 2)
+//         // calculate the midpoint : center index
+//         let level = '';
+//
+//         for (let column = 0; column < 2 * n - 1; column) { // correct number of column
+//             //2 -> 3 / 3 -> 5 / 4 -> 7 // two times - 1
+//             if (midpoint - row <= column && midpoint + row >= column) {
+//                 level += '#';
+//             } else {
+//                 level += ' ';
+//             }
+//         }
+//         console.log(level);
+//     }
+// }
+
+
+// 2) Pyramid 2 
+// function pyramid(n, row = 0, level = '') {
+//     if (row === n ) {
+//         return;
+//     }
+//
+//     if (level.length === 2 * n -1) {
+//         console.log(level);
+//         return pyramid(n, row + 1);
+//     }
+//
+//     // midpoint
+//     const midpoint = Math.floor((2 * n - 1) / 2);
+//     let add;
+//     if(midpoint - row <= level.length && midpoint + row >= level.length) {
+//         add = '#';
+//     }else {
+//         add = ' ';
+//     }
+//     pyramid(n, row, level + add)
+// }
