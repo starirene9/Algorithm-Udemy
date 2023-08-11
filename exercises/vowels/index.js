@@ -8,12 +8,13 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-
+  const matches = str.match(/[aeiou]/gi)
+   return matches ? matches.length : 0
 }
 
 module.exports = vowels;
 
-// 1)
+// 1) includes
 // const word = "Hellow there";
 // word.includes("ellow") // true
 
@@ -29,3 +30,10 @@ module.exports = vowels;
 //     return count;
 // }
 
+// 2) match
+// function vowels(str) {
+//     const matches = str.match(/[aeiou]/gi)
+//     // 정규화 =>g : we don't stop, i : character 대소문자 책임짐
+//     return matches ? matches.length : 0;
+//     // truthy : falthy
+// }
