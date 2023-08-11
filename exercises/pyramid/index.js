@@ -71,7 +71,7 @@ module.exports = pyramid;
 // }
 
 
-// 2) Pyramid 2 
+// 2) Pyramid 2
 // function pyramid(n, row = 0, level = '') {
 //     if (row === n ) {
 //         return;
