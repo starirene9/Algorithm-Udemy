@@ -8,20 +8,32 @@
 // forms the first ten entries of the fibonacci series.
 // Example:
 //   fib(4) === 3 , fib(6) === 8
+function memoize(fn){ // memoize 함수는 다른 함수(fn)를 인자로 받습니다.
+    // storage area
+    const cache = {}; // 객체를 정의하여 계산 결과를 저장할 공간
 
-function fib(n) {
-    const result = [0, 1];
+    return function(...args) { // take all the arguments into array
+        if (cache[args]){ // 만약 cache 객체에 이미 해당 인자들에 대한 결과가 있다면, 해당 결과를 반환
+            return cache[args];
+        }
+        // 그렇지 않다면, fn 함수를 호출하여 결과를 계산
+        const result = fn.apply(this, args);
+        cache[args] = result;
 
-    for (let i = 2; i <= n; i++){
-        const a = result[i - 1]; // 마지막 값
-        const b = result[i - 2]; // 마지막에서 두번째 값
-
-        result.push(a+b);
-    }
-    console.log(result[n]);
-    return result[n];
+        return result;
+    };
 }
 
+function slowFib(n) {
+    if (n < 2 ){
+        return n;
+    }
+    return fib( n - 1 ) + fib( n - 2);
+}
+
+const fib = memoize(slowFib);
+// memoize 함수를 활용하여 slowFib 함수를 최적화한 함수
+// 중복 계산을 피하고, 이미 계산한 결과를 재사용하여 계산 속도를 향상
 module.exports = fib;
 
 // 1) linear runtime
@@ -38,3 +50,21 @@ module.exports = fib;
 //
 //     return result[n];
 // }
+
+// 2) Exponential time : dramatic increase
+
+// function fib(n) {
+//     if(n < 2) { // recursion
+//         return n;
+//     }
+//     return fib(n - 1) + fib(n - 2);
+// }
+
+// 3) memoization
+// Store the arguments of each function call along with the result.
+// If the function is called again with the same arguments, return the precomputed result,
+// rather than running the function again
+// 메모이제이션은 이전에 계산한 결과를 저장하고 재사용함으로써 계산 속도를 높이는 기법
+
+
+
