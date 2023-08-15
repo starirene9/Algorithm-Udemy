@@ -10,6 +10,47 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+class Stack {
+    constructor() {
+       this.data = []; // initialize array : hold
+    }
+    push(record){ // push method
+        this.data.push(record); // last record
+    }
+    pop(){
+        return this.data.pop();
+    }
+    peek(){ // return the last record
+        return this.data[this.data.length - 1];
+    }
+
+}
 
 module.exports = Stack;
+
+//1)
+// order which items are added
+// que : FIFO : first in first out
+// stack : FILO : first in last out
+
+// push : add a record to the stack
+// pop : remove the top record in the stack
+// peek : return the top record without popping it
+// the only difference : 나갈때 다름!
+
+// class Stack {
+//     constructor() {
+//         this.data = []; // initialize array : hold
+//     }
+//     push(record){ // push method
+//         this.data.push(record); // last record
+//     }
+//     pop(){
+//         return this.data.pop();
+//     }
+//     peek(){ // return the last record
+//         return this.data[this.data.length - 1];
+//     }
+// }
+
+

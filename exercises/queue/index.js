@@ -9,7 +9,6 @@
 //     q.remove(); // returns 1;
 
 class Queue {
-
 }
 
 module.exports = Queue;
