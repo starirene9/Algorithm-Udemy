@@ -9,10 +9,11 @@
 //     q.remove(); // returns 1;
 
 class Queue {
+
 }
 
 module.exports = Queue;
-// 1)
+// 1) que는 FIFO : first in first out 이다.
 // class Queue {
 //     constructor() {
 //         this.data = [];
