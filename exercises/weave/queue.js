@@ -16,6 +16,10 @@ class Queue {
   remove() {
     return this.data.pop();
   }
+
+  peek() { // 마지막 데이터
+    return this.data[this.data.length - 1];
+  }
 }
 
 module.exports = Queue;
