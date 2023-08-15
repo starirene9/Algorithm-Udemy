@@ -14,12 +14,15 @@ class Stack {
     constructor() {
        this.data = []; // initialize array : hold
     }
+
     push(record){ // push method
         this.data.push(record); // last record
     }
+
     pop(){
         return this.data.pop();
     }
+
     peek(){ // return the last record
         return this.data[this.data.length - 1];
     }
