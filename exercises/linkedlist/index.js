@@ -17,9 +17,45 @@ class LinkedList { // only know the head node
 
     insertFirst(data){
         const node = new Node(data, this.head); // this.head를 next에 놓음
-        this.head = node; // 새로 생긴 데이터의 헤드가 this.head가 되도록
+        this.head = node; // 새로 생긴 데이터의 헤드가 this.head가 되도
         // this.head = new Node(data, this.head);
     }
+
+    size() {
+       let counter = 0;
+       let node = this.head;
+
+       while(node) {
+           counter++;
+           node = node.next; // next -> another node or nothing
+       }
+       return counter;
+    }
+
+    getFirst() {
+        return this.head;
+    }
+
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+
+        let node = this.head;
+        while(node){
+            if (!node.next) { // next가 없다면
+                return node;
+            }
+            node = node.next;
+        }
+    }
+
+    clear() {  // empty out the list node
+        this.head = null; // clear out entire lists
+    }
+
+
+
 }
 
 // const list = new LinkedList();
