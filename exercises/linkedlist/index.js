@@ -43,7 +43,7 @@ class LinkedList { // only know the head node
 
         let node = this.head;
         while (node) {
-            if (!node.next) { // next가 없다면
+            if (!node.next) { // next node가 없다면
                 return node;
             }
             node = node.next;
@@ -80,6 +80,18 @@ class LinkedList { // only know the head node
             node = node.next;
         } // 다음에 뭐가 없으면, 노드를 null 처리 해라.
         previous.next = null;
+    }
+    // getLast 함수를 사용할 것~!
+    insertLast(data){
+        const last = this.getLast();
+
+        if (last) {
+            // There are some existing ndoes in our chain
+            last.next = new Node(data);
+        } else {
+            // The chain is empty!
+            this.head = new Node(data);
+        }
     }
 }
 
