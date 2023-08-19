@@ -81,8 +81,9 @@ class LinkedList { // only know the head node
         } // 다음에 뭐가 없으면, 노드를 null 처리 해라.
         previous.next = null;
     }
+
     // getLast 함수를 사용할 것~!
-    insertLast(data){
+    insertLast(data) {
         const last = this.getLast();
 
         if (last) {
@@ -92,6 +93,24 @@ class LinkedList { // only know the head node
             // The chain is empty!
             this.head = new Node(data);
         }
+    }
+
+    getAt(index) {
+        // if (!this.head) { // 없다면 진행하지 말것 : 아래 return null 때문에 삭제 해도 좋음 
+        //     return null;
+        // }
+
+        let counter = 0;
+        let node = this.head;
+
+        while (node) {
+            if (counter === index) {
+                return node;
+            }
+            counter++;
+            node = node.next;
+        }
+        return null;
     }
 }
 
