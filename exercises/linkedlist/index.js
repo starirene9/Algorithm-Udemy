@@ -96,7 +96,7 @@ class LinkedList { // only know the head node
     }
 
     getAt(index) {
-        // if (!this.head) { // 없다면 진행하지 말것 : 아래 return null 때문에 삭제 해도 좋음 
+        // if (!this.head) { // 없다면 진행하지 말것 : 아래 return null 때문에 삭제 해도 좋음
         //     return null;
         // }
 
@@ -111,6 +111,25 @@ class LinkedList { // only know the head node
             node = node.next;
         }
         return null;
+    }
+
+    // reuse your code , corner cases exist
+    removeAt(index) {
+        if(!this.head) {
+            return null;
+        }
+
+        if(index === 0) { // index 가 첫 번째인 경우
+            this.head =this.head.next; // 바로 remove 해버림
+            return;
+        }
+
+        const previous = this.getAt(index - 1); // 이전 것
+        if (!previous || !previous.next) { // 이전 index 숫자가 없다면 혹은 다음숫자가 없다면 
+            return;
+        }
+        previous.next = previous.next.next; // 해당 index의 다음것으로 연결해주면 자연적으로 remove가 됨
+
     }
 }
 
