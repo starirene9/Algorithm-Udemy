@@ -115,12 +115,12 @@ class LinkedList { // only know the head node
 
     // reuse your code , corner cases exist
     removeAt(index) {
-        if(!this.head) {
+        if (!this.head) {
             return null;
         }
 
-        if(index === 0) { // index 가 첫 번째인 경우
-            this.head =this.head.next; // 바로 remove 해버림
+        if (index === 0) { // index 가 첫 번째인 경우
+            this.head = this.head.next; // 바로 remove 해버림
             return;
         }
 
@@ -129,7 +129,23 @@ class LinkedList { // only know the head node
             return;
         }
         previous.next = previous.next.next; // 해당 index의 다음것으로 연결해주면 자연적으로 remove가 됨
+    }
 
+    insertAt(data, index) {
+        // nothing
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        // index 0인 경우
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        // middle element
+        const previous = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, previous.next);
+        previous.next = node;
     }
 }
 
