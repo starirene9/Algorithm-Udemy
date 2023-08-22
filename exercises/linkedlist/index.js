@@ -147,6 +147,27 @@ class LinkedList { // only know the head node
         const node = new Node(data, previous.next);
         previous.next = node;
     }
+
+    forEach(fn) { // fn은 사용자가 forEach 함수를 호출할 때 전달한 함수 : 두 개의 인자를 받음
+        let node = this.head;
+        let counter = 0;
+
+        while (node) {  // 리스트의 끝까지 반복
+            fn(node, counter); // 지정한 함수(fn)를 현재 항목(node)과 카운터 값(counter)과 함께 실행합니다.
+            node = node.next;
+            counter++;
+        }
+    }
+
+    *[Symbol.iterator]() {
+        let node = this.head;  // 리스트의 첫 번째 항목부터 시작합니다.
+        while (node) {
+            yield node; // 현재 항목(node)을 반환합니다.
+            // yield는 제너레이터 함수 내에서 값을 생성하거나 반환하는 역할을 합니다. 제너레이터 함수는 호출될 때마다 실행되는데, yield를 만나면 실행이 일시 중지되고 해당 값을 반환
+            // yield node;는 연결 리스트의 각 항목을 순회하면서 현재 항목인 node를 반환하는 역할
+            node = node.next;
+        }
+    }
 }
 
 // const list = new LinkedList();
