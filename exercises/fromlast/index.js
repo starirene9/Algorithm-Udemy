@@ -21,15 +21,15 @@ function fromLast(list, n) {
     let slow = list.getFirst();
     let fast = list.getFirst();
 
-    while(n > 0) { // fast 만 그 수만큼 앞으로 나아감
-        fast = fast.next;
-        n--;
-    }
-    while(fast.next) { // fast가 다음으로 넘어갈 요소가 있을때까지 다음과 같이 이동
-        slow = slow.next;
-        fast = fast.next;
+   while (n > 0) {
+       fast = fast.next;
+       n--;
     }
 
+    while(fast.next) {
+       slow.next;
+       fast.next;
+    }
     return slow;
 }
 
