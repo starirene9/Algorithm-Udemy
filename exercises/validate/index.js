@@ -5,6 +5,27 @@
 // every node's right hand child is greater than
 // the parent
 
-function validate(node, min = null, max = null) {}
+// validate the binary search tree
+// everything on rhs > root node
+// everything on lhs < root node
+
+// carrying min and max values
+
+function validate(node, min = null, max = null) {
+    if(max !== null && node.data > max){
+        return false;
+    }
+    if(min !== null && node.data < min) {
+        return false;
+    }
+    if( node.left && !validate(node.left, min, node.data)){
+        // node.left 있는데 !validate = false
+        return false;
+    }
+    if( node.right && !validate(node.right, node.data, max)){
+        return false;
+    }
+    return true;
+}
 
 module.exports = validate;
