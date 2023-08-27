@@ -10,8 +10,32 @@
 // on the tree class.  Each method should accept a
 // function that gets called with each element in the tree
 
-class Node {}
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.children = [];
+    }
 
-class Tree {}
+    add(data) {
+        this.children.push(new Node(data));
+    }
 
-module.exports = { Tree, Node };
+    remove(data) {
+        this.children = this.children.filter(node =>{
+            return node.data !== data; // does not equal
+        })
+    }
+}
+
+class Tree {
+
+}
+
+module.exports = {Tree, Node};
+
+// let arr = [1,2,3];
+//
+// arr = arr.filter(element =>{
+//    return element === 1;
+// });
+// filter 함수는 create new array
