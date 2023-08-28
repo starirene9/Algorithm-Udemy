@@ -32,6 +32,24 @@ class Node {
 }
 
 class Tree {
+    constructor(){
+        this.root = null;
+    }
+
+    // 너비 우선 탐색
+    traverseBF(fn){
+        const arr = [this.root];
+        while(arr.length){ // arr has something in it
+            const node = arr.shift(); // shift <- take out the first element of the array
+
+            arr.push(...node.children); // spread grammar : 벳겨서 넣어줌
+            // 현재 노드의 자식 노드들을 arr 배열에 추가 :  다음 반복에서 자식 노드들이 탐색 대상
+            // for(let child of node.children){
+            //     arr.push(child);
+            // }
+            fn(node); // 주어진 함수 fn을 현재 노드 node에 대해 실행
+        }
+    }
 
 }
 
