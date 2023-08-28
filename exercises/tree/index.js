@@ -51,6 +51,16 @@ class Tree {
         }
     }
 
+    //깊이 우선 탐색 : 너비랑 다르게 자식들을 뒤가 아닌 앞쪽에 붙여줌 ㅎ
+    traverseDF(fn){
+        const arr = [this.root];
+        while(arr.length){
+            const node = arr.shift();
+            arr.unshift(...node.children); // shift의 반대로 앞에 붙여줌
+            fn(node);
+        }
+    }
+
 }
 
 module.exports = {Tree, Node};
