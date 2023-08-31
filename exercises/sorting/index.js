@@ -26,18 +26,22 @@ function bubbleSort(arr) {
 function selectionSort(arr) {
     for (let i = 0; i <arr.length; i++) {
         let indexOfMin = i; // prove me wrong
-
+        // i 가 가장 작은 수라고 가정 : the lowest value
         for (let j = i + 1; j <arr.length ; j++){
+            // next element classic for 문
             if (arr[j] < arr[indexOfMin]) {
                 indexOfMin = j;
+            //     더 적은 수 j를 발견하면 indexOfMin 에 넣음
             }
         }
         if (indexOfMin !== i) {
+            // not the same? then swap login
             let lesser = arr[indexOfMin];
             arr[indexOfMin] = arr[i];
             arr[i] = lesser;
         }
     }
+    // Don't forget~! 
     return arr;
 }
 // Prove me Wrong Algorithm
