@@ -41,7 +41,7 @@ function selectionSort(arr) {
             arr[i] = lesser;
         }
     }
-    // Don't forget~! 
+    // Don't forget~!
     return arr;
 }
 // Prove me Wrong Algorithm
@@ -51,11 +51,30 @@ function selectionSort(arr) {
 // 작은 수를 indexofMin 에 대입해나가는 과정이다. 그리고 swap 하기
 
 function mergeSort(arr) {
+    if(arr.length === 1) {
+        return arr;
+    }
+
+    const center = Math.floor(arr.length / 2);
+    const left = arr.slice(0, center); // 잘라서 복사해서 새로 배열을 만들고 center 전까지 자른다.
+    const right = arr.slice(center); // from center to the end
+
+    // recursion is working on here
+    return merge(mergeSort(left), mergeSort(right));
 
 }
 
 function merge(left, right) {
+    const results = [];
 
+    while(left.length && right.length){
+        if (left[0] < right[0]) {
+            results.push(left.shift());
+        } else {
+            results.push(right.shift());
+        }
+    }
+    return [...results, ...left, ...right];
 }
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
